@@ -10,9 +10,9 @@ import UIKit
 public final class Toast {
     public static let shared = Toast()
     
-    public func present(message: String, info: ToastInfoProvider) {
+    public func present(message: String, infoProvider: ToastInfoProvider) {
         DispatchQueue.main.async {
-            self.window.present(message: message, info: info)
+            self.window.present(message: message, infoProvider: infoProvider)
         }
     }
 

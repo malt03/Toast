@@ -18,10 +18,10 @@ final class ToastViewController: UIViewController {
       let animateConstraints: [NSLayoutConstraint]
     }
     
-    func present(message: String, info: ToastInfoProvider) {
+    func present(message: String, infoProvider: ToastInfoProvider) {
         lock.lock()
 
-        let toastView = ToastView(message: message, info: info)
+        let toastView = ToastView(message: message, infoProvider: infoProvider)
         defer {
             presentingToasts.append(toastView)
             lock.unlock()
@@ -60,7 +60,7 @@ final class ToastViewController: UIViewController {
         view.addConstraints(animateConstraints)
         UIView.animate(withDuration: 0.24) { self.view.layoutIfNeeded() }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + info.duration) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + infoProvider.duration) {
             self.dismiss(toastView: toastView)
         }
         

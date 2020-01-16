@@ -22,9 +22,9 @@ final class ToastWindow: UIWindow {
         windowLevel = .statusBar
     }
     
-    func present(message: String, info: ToastInfoProvider) {
+    func present(message: String, infoProvider: ToastInfoProvider) {
         makeKeyAndVisible()
-        (rootViewController as! ToastViewController).present(message: message, info: info)
+        (rootViewController as! ToastViewController).present(message: message, infoProvider: infoProvider)
     }
     
     required init?(coder: NSCoder) {

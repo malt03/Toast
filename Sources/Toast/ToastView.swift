@@ -11,7 +11,7 @@ final class ToastView: UIView {
     let mainView = UIView()
     private let messageLabel = UILabel()
     
-    init(message: String, info: ToastInfoProvider) {
+    init(message: String, infoProvider: ToastInfoProvider) {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 350))
         
         mainView.isUserInteractionEnabled = false
@@ -37,9 +37,9 @@ final class ToastView: UIView {
             messageLabel.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -16),
         ])
         
-        backgroundColor = info.backgroundColor
+        backgroundColor = infoProvider.backgroundColor
         messageLabel.text = message
-        messageLabel.textColor = info.messageColor
+        messageLabel.textColor = infoProvider.messageColor
     }
     
     required init?(coder aDecoder: NSCoder) {

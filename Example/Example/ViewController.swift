@@ -14,11 +14,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var errorField: UITextField!
     
     @IBAction func info() {
-        Toast.shared.present(message: infoField.text ?? "", info: ToastInfo.info)
+        Toast.shared.present(message: infoField.text ?? "", info: .info)
     }
 
     @IBAction func error() {
-        Toast.shared.present(message: errorField.text ?? "", info: ToastInfo.error)
+        Toast.shared.present(message: errorField.text ?? "", info: .error)
+    }
+}
+
+extension Toast {
+    func present(message: String, info: ToastInfo) {
+        present(message: message, infoProvider: info)
     }
 }
 
