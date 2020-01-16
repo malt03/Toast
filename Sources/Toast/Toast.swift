@@ -10,7 +10,7 @@ import UIKit
 public final class Toast {
     public static let shared = Toast()
     
-    public func present(message: String, info: ToastInfo) {
+    public func present(message: String, info: ToastInfoProvider) {
         DispatchQueue.main.async {
             self.window.present(message: message, info: info)
         }
@@ -23,7 +23,7 @@ public final class Toast {
     }
 }
 
-public protocol ToastInfo {
+public protocol ToastInfoProvider {
     var backgroundColor: UIColor { get }
     var messageColor: UIColor { get }
     var duration: TimeInterval { get }

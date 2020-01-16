@@ -18,7 +18,7 @@ final class ToastViewController: UIViewController {
       let animateConstraints: [NSLayoutConstraint]
     }
     
-    func present(message: String, info: ToastInfo) {
+    func present(message: String, info: ToastInfoProvider) {
         lock.lock()
 
         let toastView = ToastView(message: message, info: info)

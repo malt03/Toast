@@ -11,7 +11,7 @@ final class ToastView: UIView {
     let mainView = UIView()
     private let messageLabel = UILabel()
     
-    init(message: String, info: ToastInfo) {
+    init(message: String, info: ToastInfoProvider) {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 350))
         
         mainView.isUserInteractionEnabled = false

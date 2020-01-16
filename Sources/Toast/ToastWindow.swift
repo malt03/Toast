@@ -19,10 +19,11 @@ final class ToastWindow: UIWindow {
             super.init(frame: UIScreen.main.bounds)
         }
         rootViewController = ToastViewController()
-        windowLevel = .alert
+        windowLevel = .statusBar
     }
     
-    func present(message: String, info: ToastInfo) {
+    func present(message: String, info: ToastInfoProvider) {
+        makeKeyAndVisible()
         (rootViewController as! ToastViewController).present(message: message, info: info)
     }
     
